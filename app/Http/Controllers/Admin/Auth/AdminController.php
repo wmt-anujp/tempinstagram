@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\AdminLoginFormRequest;
 use App\Models\User\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\DataTables;
 
 class AdminController extends Controller
 {

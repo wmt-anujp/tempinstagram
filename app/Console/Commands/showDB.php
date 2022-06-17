@@ -46,8 +46,8 @@ class showDB extends Command
             'What is your gender?',
             ['Male', 'Female'],
             // $defaultIndex,
-            $maxAttempts = "null",
-            $allowMultipleSelections = true
+            $maxAttempts = null,
+            $allowMultipleSelections = false
         );
         echo $gender;
         $this->newLine();

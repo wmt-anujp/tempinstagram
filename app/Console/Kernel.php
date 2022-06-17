@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Models\User\User;
+use Illuminate\Console\Command;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Artisan;
@@ -14,13 +16,14 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
-    // protected $commands = [
-    //     Commands\SendEmails::class,
-    // ];
+    protected $commands = [
+        Commands\SendEmails::class,
+        Commands\time::class,
+    ];
 
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('time')->everyMinute();
     }
 
     /**
@@ -30,9 +33,6 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        // Artisan::command('mail:send {user}', function ($user) {
-        //     $this->info("Sending email to: {$user}!");
-        // });
         $this->load(__DIR__ . '/Commands');
         require base_path('routes/console.php');
     }
